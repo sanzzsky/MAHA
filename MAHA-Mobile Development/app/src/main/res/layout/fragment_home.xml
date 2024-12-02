@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background2"
+    tools:context=".HomeFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bar_hallo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:shadowColor="#80000000"
+            android:shadowDx="2"
+            android:layout_marginStart="10dp"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="Hallo Nazwa !!!"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|top"
+            android:layout_margin="16dp"
+            android:contentDescription="Notification Icon"
+            android:src="@drawable/notif" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Kotak 1 -->
+        <LinearLayout
+            android:layout_width="115dp"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@color/background"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="foots"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="70dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" .... Kg"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="115dp"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@color/background"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Calories"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="... Cm"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="115dp"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@color/background"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dunno"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:background="@color/background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dunno"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewArticles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            tools:listitem="@layout/item_article" />
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
