@@ -127,21 +127,18 @@
             android:minHeight="48dp" />
 
 <!--        Harus drop down -->
-        <TextView
+       <TextView
             android:id="@+id/tv_health_condition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/condition"
             android:layout_marginTop="16dp" />
 
-        <EditText
-            android:id="@+id/edt_health_condition"
+        <Spinner
+            android:id="@+id/spinner_health_condition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/health_condition_hint"
-            android:inputType="textMultiLine"
-            android:gravity="top"
-            android:minHeight="100dp" />
+            android:layout_marginTop="8dp" />
 
         <Button
             android:id="@+id/btn_submit"
