@@ -45,4 +45,11 @@
     <string name="condition">Health condition</string>
     <string name="submit">Submit</string>
 
+    <string-array name="health_conditions">
+        <item>Pilih Penyakit</item>
+        <item>Diabetes</item>
+        <item>Hipertensi</item>
+        <item>Lainnya</item>
+    </string-array>
+
 </resources>
