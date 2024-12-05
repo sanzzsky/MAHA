@@ -2,12 +2,14 @@ package com.example.ui.datadiri
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import android.widget.Spinner
 import com.example.mahaapp.R
 import com.example.ui.login.LoginActivity
 
@@ -17,7 +19,7 @@ class DataDiriActivity : AppCompatActivity() {
     private lateinit var edtAge: EditText
     private lateinit var edtWeight: EditText
     private lateinit var edtHeight: EditText
-    private lateinit var edtHealthCondition: EditText
+    private lateinit var spHealthCondition: Spinner
     private lateinit var rgGender: RadioGroup
     private lateinit var rbMale: RadioButton
     private lateinit var rbFemale: RadioButton
@@ -32,7 +34,7 @@ class DataDiriActivity : AppCompatActivity() {
         edtAge = findViewById(R.id.edt_age)
         edtWeight = findViewById(R.id.edt_weight)
         edtHeight = findViewById(R.id.edt_height)
-        edtHealthCondition = findViewById(R.id.edt_health_condition)
+        spHealthCondition = findViewById(R.id.sp_health_condition)
         rgGender = findViewById(R.id.rg_gender)
         rbMale = findViewById(R.id.rb_male)
         rbFemale = findViewById(R.id.rb_female)
@@ -42,6 +44,16 @@ class DataDiriActivity : AppCompatActivity() {
         btnSubmit.setOnClickListener {
             submitData()
         }
+
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.health_conditions, // Pastikan array ini ada di res/values/strings.xml
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spHealthCondition.adapter = adapter
+
+
     }
 
     private fun submitData() {
@@ -49,7 +61,7 @@ class DataDiriActivity : AppCompatActivity() {
         val age = edtAge.text.toString().trim()
         val weight = edtWeight.text.toString().trim()
         val height = edtHeight.text.toString().trim()
-        val healthCondition = edtHealthCondition.text.toString().trim()
+        val healthCondition = spHealthCondition.selectedItem.toString()
 
         // Check for gender selection
         val gender = when {
@@ -64,14 +76,18 @@ class DataDiriActivity : AppCompatActivity() {
             return
         }
 
-        // Here you can send the data to a server, save it locally, or whatever you need to do with the data
+
+        if (healthCondition == "Pilih Kondisi Kesehatan") {
+            Toast.makeText(this, "Please select a health condition", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val message = "Data submitted successfully:\nName: $name\nAge: $age\nGender: $gender\nWeight: $weight\nHeight: $height\nHealth Condition: $healthCondition"
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
-        // Arahkan pengguna ke halaman Login setelah submit data
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish()  // Menutup DataDiriActivity
+        finish()
 
     }
 }

@@ -50,9 +50,12 @@
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:hint="@string/name_hint"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/tv_age"
@@ -65,9 +68,12 @@
             android:id="@+id/edt_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:hint="@string/age_hint"
             android:inputType="number"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/tv_gender"
@@ -107,14 +113,19 @@
             android:id="@+id/edt_weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:hint="@string/weight_hint"
             android:inputType="numberDecimal"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/tv_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:importantForAutofill="no"
             android:text="@string/Tinggi"
             android:layout_marginTop="16dp" />
 
@@ -124,7 +135,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/height_hint"
             android:inputType="numberDecimal"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
 <!--        Harus drop down -->
         <TextView
@@ -134,21 +147,20 @@
             android:text="@string/condition"
             android:layout_marginTop="16dp" />
 
-        <EditText
-            android:id="@+id/edt_health_condition"
+        <Spinner
+            android:id="@+id/sp_health_condition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/health_condition_hint"
-            android:inputType="textMultiLine"
-            android:gravity="top"
-            android:minHeight="100dp" />
+            android:layout_marginTop="8dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/submit" />
+            android:text="@string/submit"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
