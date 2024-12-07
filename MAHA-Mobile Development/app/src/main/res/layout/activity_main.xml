@@ -22,7 +22,8 @@
             app:backgroundTint="@color/background"
             app:itemTextColor="@color/white"
             app:itemIconTint="@color/white"
-            app:menu="@menu/menu" />
+            app:menu="@menu/menu"
+            tools:ignore="VisualLintBottomNav" />
     </FrameLayout>
 
 </LinearLayout>

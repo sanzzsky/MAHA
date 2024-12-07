@@ -63,14 +63,13 @@ class DataDiriActivity : AppCompatActivity() {
         val height = edtHeight.text.toString().trim()
         val healthCondition = spHealthCondition.selectedItem.toString()
 
-        // Check for gender selection
+
         val gender = when {
             rbMale.isChecked -> "Male"
             rbFemale.isChecked -> "Female"
             else -> "Not selected"
         }
 
-        // Validate inputs
         if (name.isEmpty() || age.isEmpty() || weight.isEmpty() || height.isEmpty() || healthCondition.isEmpty() || gender == "Not selected") {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return

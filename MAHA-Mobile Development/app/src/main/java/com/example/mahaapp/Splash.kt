@@ -7,6 +7,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ui.login.LoginActivity
 
+@Suppress("DEPRECATION")
 class Splash : AppCompatActivity() {
 
     companion object {
@@ -18,7 +19,6 @@ class Splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Delay splash screen
         Handler().postDelayed({
             val sharedPreferences: SharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
             val isLoggedIn = sharedPreferences.getBoolean(IS_LOGGED_IN, false)
@@ -30,6 +30,6 @@ class Splash : AppCompatActivity() {
             }
             startActivity(nextIntent)
             finish()
-        }, 800) // Delay in milliseconds
+        }, 800)
     }
 }

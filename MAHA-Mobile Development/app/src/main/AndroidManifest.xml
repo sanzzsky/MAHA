@@ -13,27 +13,30 @@
         android:theme="@style/Theme.MAHAApp"
         tools:targetApi="31">
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifikasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false" />
         <activity android:name="com.example.ui.signup.SignupActivity" />
-
-
-        <activity android:name="com.example.ui.login.LoginActivity" android:exported="true">
-        </activity>
-
-        <activity android:name="com.example.ui.datadiri.DataDiriActivity" android:exported="true">
-        </activity>
+        <activity
+            android:name="com.example.ui.login.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.ui.datadiri.DataDiriActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

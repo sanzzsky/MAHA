@@ -44,12 +44,13 @@
     <string name="Tinggi">Height</string>
     <string name="condition">Health condition</string>
     <string name="submit">Submit</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="your_phone_number">Your Phone Number</string>
 
     <string-array name="health_conditions">
         <item>Hipertensi</item>
         <item>Diabetes</item>
     </string-array>
-
 
 
 </resources>
