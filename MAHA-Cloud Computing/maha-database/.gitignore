@@ -1,0 +1,8 @@
+# Abaikan file Firebase credentials
+maha-app-443810-firebase-adminsdk-29o39-909f1f3fd8.json
+
+# Abaikan file environment variables
+.env
+
+# Abaikan folder node_modules
+node_modules/
