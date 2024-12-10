@@ -3,6 +3,7 @@ package com.example.mahaapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.ui.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Membuka fragment default saat pertama kali
         if (savedInstanceState == null) {
             bottomNavigationView.selectedItemId = R.id.homepage
         }

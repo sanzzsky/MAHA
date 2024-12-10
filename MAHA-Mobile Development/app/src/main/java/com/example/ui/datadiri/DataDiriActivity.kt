@@ -2,14 +2,12 @@ package com.example.ui.datadiri
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
-import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mahaapp.R
 import com.example.ui.login.LoginActivity
 
@@ -19,10 +17,11 @@ class DataDiriActivity : AppCompatActivity() {
     private lateinit var edtAge: EditText
     private lateinit var edtWeight: EditText
     private lateinit var edtHeight: EditText
-    private lateinit var spHealthCondition: Spinner
     private lateinit var rgGender: RadioGroup
     private lateinit var rbMale: RadioButton
     private lateinit var rbFemale: RadioButton
+    private lateinit var rgDiabetes: RadioGroup
+    private lateinit var rgHypertension: RadioGroup
     private lateinit var btnSubmit: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,26 +33,17 @@ class DataDiriActivity : AppCompatActivity() {
         edtAge = findViewById(R.id.edt_age)
         edtWeight = findViewById(R.id.edt_weight)
         edtHeight = findViewById(R.id.edt_height)
-        spHealthCondition = findViewById(R.id.sp_health_condition)
         rgGender = findViewById(R.id.rg_gender)
         rbMale = findViewById(R.id.rb_male)
         rbFemale = findViewById(R.id.rb_female)
+        rgDiabetes = findViewById(R.id.rg_diabetes)
+        rgHypertension = findViewById(R.id.rg_hypertension)
         btnSubmit = findViewById(R.id.btn_submit)
 
         // Handle button click
         btnSubmit.setOnClickListener {
             submitData()
         }
-
-        val adapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.health_conditions, // Pastikan array ini ada di res/values/strings.xml
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spHealthCondition.adapter = adapter
-
-
     }
 
     private fun submitData() {
@@ -61,32 +51,57 @@ class DataDiriActivity : AppCompatActivity() {
         val age = edtAge.text.toString().trim()
         val weight = edtWeight.text.toString().trim()
         val height = edtHeight.text.toString().trim()
-        val healthCondition = spHealthCondition.selectedItem.toString()
 
+        // Get selected options for Diabetes and Hypertension
+        val diabetes = when (rgDiabetes.checkedRadioButtonId) {
+            R.id.rb_diabetes_yes -> "Ya"
+            R.id.rb_diabetes_no -> "Tidak"
+            else -> "Not selected"
+        }
 
+        val hypertension = when (rgHypertension.checkedRadioButtonId) {
+            R.id.rb_hypertension_yes -> "Ya"
+            R.id.rb_hypertension_no -> "Tidak"
+            else -> "Not selected"
+        }
+
+        // Get selected gender
         val gender = when {
             rbMale.isChecked -> "Male"
             rbFemale.isChecked -> "Female"
             else -> "Not selected"
         }
 
-        if (name.isEmpty() || age.isEmpty() || weight.isEmpty() || height.isEmpty() || healthCondition.isEmpty() || gender == "Not selected") {
+        // Validate inputs
+        if (name.isEmpty() || age.isEmpty() || weight.isEmpty() || height.isEmpty() ||
+            diabetes == "Not selected" || hypertension == "Not selected" || gender == "Not selected") {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Display success message
+        val message = """
+            Data submitted successfully:
+            Name: $name
+            Age: $age
+            Gender: $gender
+            Weight: $weight
+            Height: $height
+            Diabetes: $diabetes
+            Hypertension: $hypertension
+        """.trimIndent()
 
-        if (healthCondition == "Pilih Kondisi Kesehatan") {
-            Toast.makeText(this, "Please select a health condition", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val message = "Data submitted successfully:\nName: $name\nAge: $age\nGender: $gender\nWeight: $weight\nHeight: $height\nHealth Condition: $healthCondition"
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
+        // Save the name to SharedPreferences
+        val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("userName", name)
+        editor.apply()  // Apply changes asynchronously
+
+        // Navigate to LoginActivity
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
-
     }
 }

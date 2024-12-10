@@ -37,7 +37,7 @@
     <string name="confirm">Confirm Password</string>
     <string name="data">Data Diri</string>
     <string name="umur">Age</string>
-    <string name="Gender">gender</string>
+    <string name="Gender">Gender</string>
     <string name="LK">Male</string>
     <string name="PR">Female</string>
     <string name="Berat">Weight</string>
@@ -46,11 +46,20 @@
     <string name="submit">Submit</string>
     <string name="phone_number">Phone Number</string>
     <string name="your_phone_number">Your Phone Number</string>
+    <string name="rekomendasi_gym">Rekomendasi Gym</string>
+    <string name="food_image">food image</string>
+    <string name="food_title">Food Title</string>
+    <string name="description_of_the_food">Short description of the food goes here.</string>
+    <string name="rekomendasi_makanan_sehat">Rekomendasi Makanan Sehat</string>
 
-    <string-array name="health_conditions">
-        <item>Hipertensi</item>
-        <item>Diabetes</item>
-    </string-array>
+    <string name="diabetes">Diabetes</string>
+    <string name="hypertension">Hipertensi</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+<!--bar hallo-->
+    <string name="greeting_text">Hallo, %1$s!</string>
+
+
 
 
 </resources>
